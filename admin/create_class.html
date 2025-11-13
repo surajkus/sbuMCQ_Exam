@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teacher Dashboard</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #74ABE2, #5563DE);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: #fff;
+      margin-top: 40px;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      width: 450px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #004aad;
+      margin-bottom: 25px;
+    }
+
+    label {
+      font-weight: 600;
+      margin-top: 10px;
+      display: block;
+      color: #333;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    input:focus, select:focus {
+      border-color: #5563DE;
+      box-shadow: 0 0 5px #5563DE;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background-color: #5563DE;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #3542b5;
+    }
+
+    .section {
+      margin-bottom: 30px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 20px;
+    }
+
+    .message {
+      text-align: center;
+      color: green;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Teacher Dashboard</h2>
+
+    <!-- Add Teacher Section -->
+    <div class="section">
+      <h3>Add Teacher</h3>
+      <form id="teacherForm">
+        <label for="tname">Teacher Name:</label>
+        <input type="text" id="tname" name="tname" placeholder="Enter teacher name" required>
+
+        <label for="temail">Email:</label>
+        <input type="email" id="temail" name="temail" placeholder="Enter teacher email" required>
+
+        <label for="tsubject">Subject:</label>
+        <input type="text" id="tsubject" name="tsubject" placeholder="Enter subject" required>
+
+        <button type="submit">Add Teacher</button>
+      </form>
+      <div class="message" id="teacherMsg"></div>
+    </div>
+
+    <!-- Create Class Section -->
+   
+
+  <script>
+    // Add Teacher
+    document.getElementById("teacherForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("tname").value;
+      const email = document.getElementById("temail").value;
+      const subject = document.getElementById("tsubject").value;
+      document.getElementById("teacherMsg").textContent = `✅ Teacher "${name}" added successfully!`;
+      this.reset();
+    });
+
+    // Create Class Section
+    document.getElementById("classForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const classname = document.getElementById("classname").value;
+      const section = document.getElementById("section").value;
+      document.getElementById("classMsg").textContent = `✅ ${classname} Section "${section}" created successfully!`;
+      this.reset();
+    });
+  </script>
+</body>
+</html>
